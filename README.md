@@ -1,4 +1,4 @@
-# iStore — Website bán sản phẩm Apple
+# iStore — Website bán sản phẩm công nghệ của Apple
 
 Đồ án ASP.NET Xây dựng website bán sản phẩm công nghệ của Apple
 
