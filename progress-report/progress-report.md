@@ -8,6 +8,7 @@ Lớp: DK24TTC6
 Giảng viên hướng dẫn: TS. Đoàn Phước Miền
 ---
 2. Tiến độ thực hiện
+---
 Tuần 1: Khởi tạo dự án
 Công việc đã thực hiện:
 Tạo project ASP.NET Core MVC
