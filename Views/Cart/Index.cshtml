@@ -1,0 +1,71 @@
+@model CartViewModel
+@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Giỏ hàng</p>
+        <h1>Túi của bạn</h1>
+    </div>
+</section>
+
+<section class="section tight">
+    <div class="container">
+        @if (Model.IsEmpty)
+        {
+            <div class="empty-state">
+                <i class="bi bi-bag"></i>
+                <h3>Giỏ hàng đang trống</h3>
+                <p>Khám phá iPhone, MacBook và phụ kiện mới nhất.</p>
+                <a class="btn-primary" asp-controller="Product" asp-action="Index">Tiếp tục mua sắm</a>
+            </div>
+        }
+        else
+        {
+            <div class="cart-layout">
+                <div class="cart-list">
+                    @foreach (var item in Model.Items)
+                    {
+                        <article class="cart-item">
+                            <img src="@item.Image" alt="@item.ProductName" />
+                            <div class="cart-item-info">
+                                <h3><a asp-controller="Product" asp-action="Details" asp-route-slug="@item.Slug">@item.ProductName</a></h3>
+                                <p class="muted">
+                                    @if (!string.IsNullOrEmpty(item.Color)) { <span>@item.Color</span> }
+                                    @if (!string.IsNullOrEmpty(item.Storage)) { <span> · @item.Storage</span> }
+                                </p>
+                                <p class="price">@FormatHelper.Vnd(item.Price)</p>
+                                <form asp-action="Update" method="post" class="qty-form">
+                                    <input type="hidden" name="itemId" value="@item.Id" />
+                                    <input class="form-control qty" type="number" name="quantity" value="@item.Quantity" min="1" max="@item.Stock" onchange="this.form.submit()" />
+                                </form>
+                            </div>
+                            <div class="cart-item-side">
+                                <strong>@FormatHelper.Vnd(item.LineTotal)</strong>
+                                <form asp-action="Remove" method="post">
+                                    <input type="hidden" name="itemId" value="@item.Id" />
+                                    <button class="link-danger" type="submit">Xóa</button>
+                                </form>
+                            </div>
+                        </article>
+                    }
+                </div>
+                <aside class="cart-summary">
+                    <h2>Tóm tắt</h2>
+                    <div class="summary-row"><span>Tạm tính</span><span>@FormatHelper.Vnd(Model.Total)</span></div>
+                    <div class="summary-row"><span>Vận chuyển</span><span>Miễn phí</span></div>
+                    <div class="summary-row total"><span>Tổng</span><strong>@FormatHelper.Vnd(Model.Total)</strong></div>
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <a class="btn-primary lg w-100" asp-controller="Checkout" asp-action="Index">Thanh toán</a>
+                    }
+                    else
+                    {
+                        <a class="btn-primary lg w-100" asp-controller="Account" asp-action="Login" asp-route-returnUrl="/Checkout">Đăng nhập để đặt hàng</a>
+                    }
+                </aside>
+            </div>
+        }
+    </div>
+</section>

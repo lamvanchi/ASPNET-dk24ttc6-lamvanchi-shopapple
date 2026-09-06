@@ -1,0 +1,183 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Website bán sản phẩm công nghệ của Apple";
+    var heroProduct = Model.FeaturedProducts.FirstOrDefault();
+}
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-copy reveal in">
+            <span class="badge-pill"><i class="bi bi-stars"></i> Mới ra mắt • iPhone 17 Pro Max</span>
+            <h1>Bộ sưu tập <span>Apple</span> mới nhất, chờ bạn khám phá</h1>
+            <p class="lead">iPhone, MacBook, iPad, Apple Watch và AirPods chính hãng — trải nghiệm mua sắm hiện đại, giao hàng siêu tốc.</p>
+            <div class="hero-cta">
+                <a class="btn-primary lg" asp-controller="Product" asp-action="Index"><i class="bi bi-bag-plus"></i> Mua ngay</a>
+                <a class="btn-ghost lg" asp-controller="Home" asp-action="About">Về chúng tôi</a>
+            </div>
+            <div class="hero-mini-stats">
+                <div><strong>10K+</strong><span>Khách hàng</span></div>
+                <div><strong>100%</strong><span>Chính hãng</span></div>
+                <div><strong>24/7</strong><span>Hỗ trợ</span></div>
+            </div>
+        </div>
+        <div class="hero-visual reveal in">
+            <div class="hero-img-wrap">
+                <img src="@(heroProduct?.MainImage ?? "https://images.unsplash.com/photo-1663499482523-1c0c1bae4ce1?w=1200&q=80&auto=format&fit=crop")" alt="iPhone 17" />
+                <div class="floating-chip c1">
+                    <i class="bi bi-truck chip-icon-1"></i>
+                    <div><strong>Giao 2 giờ</strong><br /><span class="muted">Nội thành</span></div>
+                </div>
+                <div class="floating-chip c2">
+                    <i class="bi bi-shield-check chip-icon-2"></i>
+                    <div><strong>Bảo hành 12 tháng</strong></div>
+                </div>
+                <div class="floating-chip c3">
+                    <i class="bi bi-star-fill chip-icon-3"></i>
+                    <div><strong>4.9/5</strong><br /><span class="muted">Đánh giá</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head text-center">
+            <p class="eyebrow gradient-text">Danh mục</p>
+            <h2>Hệ sinh thái Apple đầy đủ</h2>
+        </div>
+        <div class="category-grid">
+            @foreach (var cat in Model.Categories)
+            {
+                var icon = cat.Icon switch
+                {
+                    "phone" => "phone",
+                    "tablet" => "tablet",
+                    "laptop" => "laptop",
+                    "watch" => "smartwatch",
+                    "headphones" => "earbuds",
+                    _ => "grid"
+                };
+                <a class="category-tile reveal" asp-controller="Product" asp-action="Index" asp-route-category="@cat.Slug">
+                    <span class="category-icon"><i class="bi bi-@icon"></i></span>
+                    <strong>@cat.Name</strong>
+                    <span>Xem tất cả →</span>
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: var(--bg-soft);">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow gradient-text">Nổi bật</p>
+                <h2>Sản phẩm được yêu thích</h2>
+            </div>
+            <a asp-controller="Product" asp-action="Index">Xem tất cả →</a>
+        </div>
+        <div class="product-grid">
+            @foreach (var product in Model.FeaturedProducts)
+            {
+                <partial name="_ProductCard" model="product" />
+            }
+        </div>
+    </div>
+</section>
+
+<section class="promo-banner">
+    <div class="container">
+        <div class="promo-inner">
+            <div>
+                <p class="eyebrow light">MacBook</p>
+                <h2>Mỏng nhẹ. Mạnh mẽ. Cả ngày.</h2>
+                <p>MacBook Air với chip M4 — làm việc, học tập và sáng tạo không giới hạn với thời lượng pin lên đến 18 giờ.</p>
+                <a class="btn-light" asp-controller="Product" asp-action="Index" asp-route-category="macbook">Mua MacBook →</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=1200&q=80&auto=format&fit=crop" alt="MacBook Air" />
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow gradient-text">iPhone</p>
+                <h2>iPhone mới nhất</h2>
+            </div>
+            <a asp-controller="Product" asp-action="Index" asp-route-category="iphone">Tất cả iPhone →</a>
+        </div>
+        <div class="product-grid">
+            @foreach (var product in Model.IPhones)
+            {
+                <partial name="_ProductCard" model="product" />
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: var(--bg-soft);">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow gradient-text">MacBook</p>
+                <h2>Mac cho mọi công việc</h2>
+            </div>
+            <a asp-controller="Product" asp-action="Index" asp-route-category="macbook">Tất cả Mac →</a>
+        </div>
+        <div class="product-grid">
+            @foreach (var product in Model.MacBooks)
+            {
+                <partial name="_ProductCard" model="product" />
+            }
+        </div>
+    </div>
+</section>
+
+<section class="split-banners">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="mini-banner gradient-a reveal">
+                    <div>
+                        <p class="eyebrow light">iPad Pro</p>
+                        <h3>Màn hình Tandem OLED</h3>
+                        <p>Sức mạnh chip M4 cho công việc chuyên nghiệp.</p>
+                        <a asp-controller="Product" asp-action="Details" asp-route-slug="ipad-pro">Khám phá →</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=80&auto=format&fit=crop" alt="iPad Pro" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mini-banner gradient-b reveal">
+                    <div>
+                        <p class="eyebrow light">Apple Watch</p>
+                        <h3>Sức khỏe trên cổ tay</h3>
+                        <p>Theo dõi tim mạch, giấc ngủ và vận động.</p>
+                        <a asp-controller="Product" asp-action="Index" asp-route-category="apple-watch">Khám phá →</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=800&q=80&auto=format&fit=crop" alt="Apple Watch" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow gradient-text">Âm nhạc & Sáng tạo</p>
+                <h2>AirPods, iPad & Apple Watch</h2>
+            </div>
+        </div>
+        <div class="product-grid">
+            @foreach (var product in Model.IPads.Concat(Model.Watches).Concat(Model.AirPods).Take(8))
+            {
+                <partial name="_ProductCard" model="product" />
+            }
+        </div>
+    </div>
+</section>

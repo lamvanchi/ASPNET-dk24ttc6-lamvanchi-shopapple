@@ -1,0 +1,32 @@
+@model ApplicationUser
+@{
+    ViewData["Title"] = Model.FullName;
+    var orders = ViewBag.Orders as List<Order> ?? new List<Order>();
+}
+
+<div class="admin-split">
+    <div class="admin-card">
+        <h2>Thông tin</h2>
+        <p><strong>@Model.FullName</strong></p>
+        <p>@Model.Email</p>
+        <p>@Model.PhoneNumber</p>
+        <p>@Model.Address</p>
+        <p class="muted">Tham gia @Model.CreatedAt.ToString("dd/MM/yyyy")</p>
+    </div>
+    <div class="admin-card">
+        <h2>Đơn hàng (@orders.Count)</h2>
+        <table class="data-table">
+            <tbody>
+            @foreach (var order in orders)
+            {
+                <tr>
+                    <td><a asp-controller="Orders" asp-action="Details" asp-route-id="@order.Id">@order.OrderCode</a></td>
+                    <td>@order.CreatedAt.ToString("dd/MM/yyyy")</td>
+                    <td>@FormatHelper.Vnd(order.TotalAmount)</td>
+                    <td><span class="status-badge @FormatHelper.StatusClass(order.Status)">@FormatHelper.StatusText(order.Status)</span></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+@model Product
+<article class="product-card reveal">
+    <a class="product-card-media" asp-controller="Product" asp-action="Details" asp-route-slug="@Model.Slug">
+        @if (Model.IsOnSale)
+        {
+            var percent = (int)Math.Round((1 - Model.DisplayPrice / Model.Price) * 100);
+            <span class="chip">-@percent%</span>
+        }
+        <span class="wish-icon"><i class="bi bi-heart"></i></span>
+        <img src="@Model.MainImage" alt="@Model.Name" loading="lazy" />
+    </a>
+    <div class="product-card-body">
+        <p class="product-cat">@Model.Category?.Name</p>
+        <h3><a asp-controller="Product" asp-action="Details" asp-route-slug="@Model.Slug">@Model.Name</a></h3>
+        <div class="product-price">
+            <strong>@FormatHelper.Vnd(Model.DisplayPrice)</strong>
+            @if (Model.IsOnSale)
+            {
+                <s>@FormatHelper.Vnd(Model.Price)</s>
+            }
+        </div>
+        <p class="stock @(Model.InStock ? "in" : "out")">@(Model.InStock ? "Còn hàng" : "Hết hàng")</p>
+        <div class="product-actions">
+            <a class="btn-ghost" asp-controller="Product" asp-action="Details" asp-route-slug="@Model.Slug"><i class="bi bi-eye"></i> Xem</a>
+            @if (Model.InStock)
+            {
+                <form asp-controller="Cart" asp-action="Add" method="post" class="js-add-cart">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <input type="hidden" name="quantity" value="1" />
+                    <button class="btn-primary" type="submit"><i class="bi bi-bag-plus"></i> Thêm</button>
+                </form>
+            }
+        </div>
+    </div>
+</article>
