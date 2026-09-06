@@ -1,0 +1,40 @@
+@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Danh mục";
+}
+
+<div class="admin-toolbar">
+    <h2 class="visually-hidden">Danh mục</h2>
+    <a class="btn-primary" asp-action="Create">Thêm danh mục</a>
+</div>
+
+<div class="admin-card">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Slug</th>
+                <th>Sản phẩm</th>
+                <th>Thứ tự</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><strong>@item.Name</strong></td>
+                <td>@item.Slug</td>
+                <td>@item.Products.Count</td>
+                <td>@item.DisplayOrder</td>
+                <td class="table-actions">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Xóa danh mục này?');">
+                        <button type="submit" class="link-danger">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

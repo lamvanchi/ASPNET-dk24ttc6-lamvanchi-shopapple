@@ -1,0 +1,43 @@
+@model Order
+@{
+    ViewData["Title"] = $"Đơn {Model.OrderCode}";
+}
+
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Đơn hàng</p>
+        <h1>@Model.OrderCode</h1>
+        <p class="muted">Đặt lúc @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm") · <span class="status-badge @FormatHelper.StatusClass(Model.Status)">@FormatHelper.StatusText(Model.Status)</span></p>
+    </div>
+</section>
+
+<section class="section tight">
+    <div class="container checkout-layout">
+        <div class="auth-card">
+            <h2>Sản phẩm</h2>
+            @foreach (var item in Model.Details)
+            {
+                <div class="cart-item compact">
+                    <img src="@item.ProductImage" alt="@item.ProductName" />
+                    <div>
+                        <strong>@item.ProductName</strong>
+                        <p class="muted mb-0">@item.Color @item.Storage · x @item.Quantity</p>
+                    </div>
+                    <strong>@FormatHelper.Vnd(item.LineTotal)</strong>
+                </div>
+            }
+        </div>
+        <aside class="cart-summary">
+            <h2>Giao hàng</h2>
+            <p><strong>@Model.ReceiverName</strong></p>
+            <p class="muted">@Model.Phone</p>
+            <p class="muted">@Model.Address</p>
+            @if (!string.IsNullOrEmpty(Model.Note))
+            {
+                <p class="muted">Ghi chú: @Model.Note</p>
+            }
+            <div class="summary-row total"><span>Tổng</span><strong>@FormatHelper.Vnd(Model.TotalAmount)</strong></div>
+            <p class="muted">Thanh toán: @Model.PaymentMethod</p>
+        </aside>
+    </div>
+</section>

@@ -1,0 +1,64 @@
+@model CheckoutViewModel
+@{
+    ViewData["Title"] = "Thanh toán";
+}
+
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Checkout</p>
+        <h1>Thanh toán</h1>
+    </div>
+</section>
+
+<section class="section tight">
+    <div class="container">
+        <form method="post" class="checkout-layout">
+            <div class="auth-card">
+                <h2>Thông tin giao hàng</h2>
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="mb-3">
+                    <label asp-for="ReceiverName"></label>
+                    <input asp-for="ReceiverName" class="form-control" />
+                    <span asp-validation-for="ReceiverName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Phone"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Address"></label>
+                    <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Note"></label>
+                    <textarea asp-for="Note" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="pay-method">
+                    <i class="bi bi-cash-coin"></i>
+                    <div>
+                        <strong>Thanh toán khi nhận hàng (COD)</strong>
+                        <p class="muted mb-0">Bạn thanh toán tiền mặt khi nhận sản phẩm.</p>
+                    </div>
+                </div>
+                <button class="btn-primary lg w-100 mt-4" type="submit">Đặt hàng</button>
+            </div>
+            <aside class="cart-summary">
+                <h2>Đơn hàng</h2>
+                @foreach (var item in Model.Cart.Items)
+                {
+                    <div class="summary-item">
+                        <span>@item.ProductName × @item.Quantity</span>
+                        <span>@FormatHelper.Vnd(item.LineTotal)</span>
+                    </div>
+                }
+                <div class="summary-row total"><span>Tổng</span><strong>@FormatHelper.Vnd(Model.Cart.Total)</strong></div>
+            </aside>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

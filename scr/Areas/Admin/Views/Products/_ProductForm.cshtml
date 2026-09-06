@@ -1,0 +1,62 @@
+@model AdminProductViewModel
+<div class="row g-3">
+    <div class="col-md-8">
+        <div class="mb-3">
+            <label asp-for="Name">Tên sản phẩm</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ShortDescription">Mô tả ngắn</label>
+            <input asp-for="ShortDescription" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">Mô tả</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Specifications">Thông số (mỗi dòng: Tên: Giá trị)</label>
+            <textarea asp-for="Specifications" class="form-control" rows="5"></textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="mb-3">
+            <label asp-for="CategoryId">Danh mục</label>
+            <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories"></select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price">Giá</label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="SalePrice">Giá khuyến mãi</label>
+            <input asp-for="SalePrice" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Stock">Tồn kho</label>
+            <input asp-for="Stock" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="ColorOptions">Màu (cách nhau bởi dấu phẩy)</label>
+            <input asp-for="ColorOptions" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="StorageOptions">Dung lượng</label>
+            <input asp-for="StorageOptions" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label>Ảnh chính</label>
+            <input asp-for="ImageFile" class="form-control" type="file" />
+            @if (!string.IsNullOrEmpty(Model.CurrentImage))
+            {
+                <img class="preview" src="@Model.CurrentImage" alt="" />
+            }
+        </div>
+        <div class="mb-3">
+            <label>Thư viện ảnh</label>
+            <input asp-for="GalleryFiles" class="form-control" type="file" multiple />
+        </div>
+        <label class="check-row"><input asp-for="IsFeatured" /> Nổi bật</label>
+        <label class="check-row"><input asp-for="IsActive" /> Hiển thị</label>
+    </div>
+</div>

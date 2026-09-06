@@ -1,0 +1,12 @@
+@model AdminProductViewModel
+@{
+    ViewData["Title"] = "Sửa sản phẩm";
+}
+<div class="admin-card form-wide">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <partial name="_ProductForm" model="Model" />
+        <button class="btn-primary" type="submit">Cập nhật</button>
+        <a class="btn-ghost" asp-action="Index">Hủy</a>
+    </form>
+</div>
