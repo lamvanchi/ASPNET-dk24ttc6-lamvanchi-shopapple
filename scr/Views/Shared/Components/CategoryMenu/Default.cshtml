@@ -1,8 +1,0 @@
-@model IEnumerable<Category>
-<ul class="nav-links">
-    @foreach (var cat in Model)
-    {
-        <li><a asp-controller="Product" asp-action="Index" asp-route-category="@cat.Slug">@cat.Name</a></li>
-    }
-    <li><a asp-controller="Product" asp-action="Index">Cửa hàng</a></li>
-</ul>
