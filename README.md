@@ -1,6 +1,6 @@
 # iStore — Website bán sản phẩm công nghệ của Apple
 
-Đồ án ASP.NET Core MVC + SQL Server: bán iPhone, iPad, MacBook, Apple Watch, AirPods, phụ kiện.
+
 
 ## Công nghệ
 
