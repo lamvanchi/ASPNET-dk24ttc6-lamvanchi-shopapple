@@ -64,7 +64,7 @@ File này sẽ tạo database + toàn bộ schema (15 bảng). Sau đó `dotnet 
 
 ## Đường dẫn chính
 
-- Trang chủ: <http://localhost:7211>
+- Trang chủ: <http://localhost:5000>
 - Sản phẩm: `/Product`
 - Chi tiết sản phẩm: `/san-pham/{slug}` (VD `/san-pham/iphone-17-pro`)
 - Về chúng tôi: `/Home/About`
@@ -128,5 +128,5 @@ AppleStore/
   DROP DATABASE [AppleStoreDb];
   ```
   rồi `dotnet run` lại.
-- Nếu port 7211 bận: đổi trong `Properties/launchSettings.json`.
+- Nếu port 5000 bận: đổi trong `Properties/launchSettings.json`.
 - Kết nối SSL lỗi: đảm bảo `TrustServerCertificate=True` (đã có sẵn).
