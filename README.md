@@ -97,7 +97,7 @@ scr/
 
 - **Sinh viên thực hiện:** Lâm Văn Chỉ
 - **Số điện thoại:** 0942 473 373
-- **Email:** `lamchi93@gmail.com`
+- **Email:** `chilv200693@tvu-onschool.edu.vn`
 - **Giảng viên hướng dẫn:** TS. Đoàn Phước Miền
 - **Thời gian thực hiện:** Tháng 6 – 8/2026
 
