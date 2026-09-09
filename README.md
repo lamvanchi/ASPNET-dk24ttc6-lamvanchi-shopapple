@@ -7,9 +7,8 @@
 3. [Tài khoản đăng nhập](#tài-khoản-đăng-nhập)
 4. [Chức năng nổi bật](#chức-năng-nổi-bật)
 5. [Cơ sở dữ liệu](#cơ-sở-dữ-liệu)
-6. [Hướng dẫn cài đặt](#hướng-dẫn-cài-đặt)
-7. [API Endpoints](#api-endpoints)
-8. [Troubleshooting](#troubleshooting)
+6. [API Endpoints](#api-endpoints)
+7. [Troubleshooting](#troubleshooting)
 
 ---
 
