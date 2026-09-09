@@ -32,7 +32,6 @@ dotnet run
 `DbInitializer` sẽ tự động:
 - Tạo database `AppleStoreDb`
 - Chạy toàn bộ EF Core migrations
-- Nạp 6 danh mục, 24 sản phẩm, 59 ảnh (ảnh thật từ Unsplash)
 - Tạo tài khoản admin/user mẫu + 1 đơn hàng mẫu
 
 ### Cách 2 — Chạy file `.sql` trước (nếu giáo viên yêu cầu)
@@ -55,7 +54,7 @@ File này sẽ tạo database + toàn bộ schema (15 bảng). Sau đó `dotnet 
 
 ## Đường dẫn chính
 
-- Trang chủ: <http://localhost:5000>
+- Trang chủ: <http://localhost:5000>, <https://localhost:7211>
 - Sản phẩm: `/Product`
 - Chi tiết sản phẩm: `/san-pham/{slug}` (VD `/san-pham/iphone-17-pro`)
 - Về chúng tôi: `/Home/About`
