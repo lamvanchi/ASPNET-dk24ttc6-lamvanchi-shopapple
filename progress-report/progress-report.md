@@ -22,7 +22,7 @@
 #### Công việc đã thực hiện
 
 * Tạo project ASP.NET Core MVC.
-* Cài đặt SQL Server.
+* Cài đặt SQL Server 2022.
 * Thiết kế cấu trúc thư mục (`Controllers`, `Models`, `Views`).
 * Tạo database ban đầu.
 * Thêm dữ liệu mẫu.
