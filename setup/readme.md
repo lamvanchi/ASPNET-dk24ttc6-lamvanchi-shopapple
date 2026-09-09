@@ -5,7 +5,7 @@
 | Công cụ | Ghi chú |
 | --- | --- |
 | .NET SDK 8.0+ | `dotnet --version` |
-| SQL Server (localhost) | Windows Authentication, không cần mật khẩu |
+| SQL Server 2022 (localhost) | Windows Authentication, không cần mật khẩu |
 | sqlcmd hoặc SSMS | Tùy chọn, dùng để chạy file `.sql` |
 
 ## Kết nối database
