@@ -25,7 +25,7 @@
 ## 📁 Cấu trúc dự án
 
 ```text
-iStore/
+scr/
 ├── Areas/Admin/           # Khu vực quản trị: Dashboard, Categories, Products, Orders, Customers, Statistics
 ├── Controllers/           # Home, Account, Product, Cart, Checkout, Order, Profile
 ├── Data/                  # ApplicationDbContext, DbInitializer
