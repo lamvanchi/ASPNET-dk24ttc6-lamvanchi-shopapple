@@ -5,7 +5,7 @@
 1. [Giới thiệu dự án](#giới-thiệu-dự-án)
 2. [Cấu trúc dự án](#cấu-trúc-dự-án)
 3. [Tài khoản đăng nhập](#tài-khoản-đăng-nhập)
-4. [Chức năng từng trang](#chức-năng-nổi-bật)
+4. [Chức năng nổi bật](#chức-năng-nổi-bật)
 5. [Cơ sở dữ liệu](#cơ-sở-dữ-liệu)
 6. [Hướng dẫn cài đặt](#hướng-dẫn-cài-đặt)
 7. [API Endpoints](#api-endpoints)
