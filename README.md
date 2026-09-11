@@ -11,7 +11,7 @@
 
 ---
 
-## 📋 Giới thiệu dự án
+##  Giới thiệu dự án
 
 **iStore** là website thương mại điện tử chuyên bán các sản phẩm Apple được phát triển bằng ASP.NET Core MVC 8, C# .NET 8.
 
@@ -22,7 +22,7 @@
 - SQL Server / LocalDB
 - Bootstrap 5, Bootstrap Icons, custom CSS/JS (gradient, animation, glassmorphism)
 
-## 📁 Cấu trúc dự án
+##  Cấu trúc dự án
 
 ```text
 scr/
@@ -41,7 +41,7 @@ scr/
 └── Program.cs
 ```
 
-## 🔐 Tài khoản đăng nhập
+##  Tài khoản đăng nhập
 
 ### Tài khoản Admin:
 
@@ -55,7 +55,7 @@ scr/
 - **Mật khẩu:** `User@123`
 - **Quyền:** Mua sắm, xem đơn hàng
 
-## ⭐ Chức năng nổi bật
+##  Chức năng nổi bật
 
 ### Khách hàng
 
@@ -78,14 +78,14 @@ scr/
 - Khách hàng: xem thông tin & số đơn
 - Thống kê: doanh thu 12 tháng, best-seller, biểu đồ Chart.js
 
-## 🎨 Giao diện
+##  Giao diện
 
 - Palette gradient tím-hồng-cam kết hợp trắng/xám nhẹ, phong cách trẻ trung hiện đại
 - Font Inter + Sora, corner-radius mềm 22–28px
 - Animation: hero float, floating chip, hover product card, reveal on scroll
 - Responsive từ mobile 375px đến desktop 1440px
 
-## 🗄️ Cơ sở dữ liệu
+##  Cơ sở dữ liệu
 
 - **Database:** `AppleStoreDb`
 - **Database Engine:** SQL Server / LocalDB
@@ -93,7 +93,7 @@ scr/
 - **Authentication:** ASP.NET Core Identity
 - **SQL Script:** `Database/AppleStoreDb.sql`
 
-## 👨‍💻 Thông tin dự án
+##  Thông tin dự án
 
 - **Sinh viên thực hiện:** Lâm Văn Chỉ
 - **Số điện thoại:** 0942 473 373
