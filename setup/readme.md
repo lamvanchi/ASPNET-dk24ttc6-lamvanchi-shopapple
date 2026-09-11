@@ -7,7 +7,8 @@
 | .NET SDK 8.0+ | `dotnet --version` |
 | SQL Server 2022 (localhost) | Windows Authentication, không cần mật khẩu |
 | sqlcmd hoặc SSMS | Tùy chọn, dùng để chạy file `.sql` |
-
+## Thư mục gốc
+- Toàn bộ source code và database nằm trong folder scr/
 ## Kết nối database
 
 Đã cấu hình sẵn trong `appsettings.json`:
