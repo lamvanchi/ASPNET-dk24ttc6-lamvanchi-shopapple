@@ -21,21 +21,9 @@ Trùng đúng với ảnh cấu hình:
 - **Authentication**: Windows Authentication
 - **Password**: không cần
 
-## Khởi tạo dữ liệu — 2 cách
+## Khởi tạo dữ liệu
 
-### Cách 1 — Chỉ cần chạy app (khuyên dùng)
-
-```bash
-dotnet run
-```
-
-`DbInitializer` sẽ tự động:
-- Tạo database `AppleStoreDb`
-- Chạy toàn bộ EF Core migrations
-- Tạo tài khoản admin/user mẫu + 1 đơn hàng mẫu
-
-### Cách 2 — Chạy file `.sql` trước (nếu giáo viên yêu cầu)
-
+### — Chạy file `.sql` trước
 ```bash
 sqlcmd -S localhost -E -C -i Database\AppleStoreDb.sql
 dotnet run
